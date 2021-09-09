@@ -5,7 +5,7 @@
 	<key>FullStory</key>
 	<dict>
 		<key>OrgId</key>
-		<string></string>
+		<string>YOUR_ORG_HERE</string>
 	</dict>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
