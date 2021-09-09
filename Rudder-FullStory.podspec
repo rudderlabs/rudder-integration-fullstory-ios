@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
     s.source_files = 'Rudder-FullStory/Classes/**/*'
 
     s.dependency 'Rudder'
+    s.dependency 'FullStory'
 end

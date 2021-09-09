@@ -16,16 +16,28 @@
 {
     // Override point for customization after application launch.
     
-    NSString *writeKey = @"1vqBRSLN79i8T7Mcl6zzRsWqdO8";
-    NSString *dataPlaneUrl = @"https://285b83208a68.ngrok.io";
+    NSString *writeKey = @"1xIqoShqDObwpWKAZm78gvQHahY";
+    NSString *dataPlaneUrl = @"https://941a-2405-201-8000-609d-6467-f5-fcc5-20f.ngrok.io";
+    NSString *controlPlaneUrl = @"https://5416-2405-201-8000-609d-6467-f5-fcc5-20f.ngrok.io";
 
   
     RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
     [configBuilder withDataPlaneUrl:dataPlaneUrl];
-    [configBuilder withLoglevel:RSLogLevelVerbose];
-    [configBuilder withControlPlaneUrl:@"https://chilly-seahorse-73.loca.lt"];
+    [configBuilder withLoglevel:RSLogLevelNone];
+    [configBuilder withControlPlaneUrl:controlPlaneUrl];
     [configBuilder withFactory:[RudderFullStoryFactory instance]];
     RSClient *rudderClient = [RSClient getInstance:writeKey config:[configBuilder build]];
+    
+    NSMutableDictionary *traits = [[NSMutableDictionary alloc] init];
+        [traits setObject:@"Random_Value" forKey:@"Random_Key"];
+    
+    [[RSClient sharedInstance] identify:@"userId" traits:traits];
+    
+    [[RSClient sharedInstance] track:@"track call"];
+    
+    [[RSClient sharedInstance] screen:@"Screen call"];
+    
+    [[RSClient sharedInstance] group:@"Group call" traits:traits];
     
     return YES;
 }
