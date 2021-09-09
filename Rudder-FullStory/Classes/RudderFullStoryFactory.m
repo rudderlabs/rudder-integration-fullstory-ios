@@ -26,7 +26,7 @@
 }
 
 - (nonnull NSString *)key {
-    return @"FullStory";
+    return @"Fullstory";
 }
 
 - (nonnull id<RSIntegration>)initiate:(nonnull NSDictionary *)config client:(nonnull RSClient *)client rudderConfig:(nonnull RSConfig *)rudderConfig {
