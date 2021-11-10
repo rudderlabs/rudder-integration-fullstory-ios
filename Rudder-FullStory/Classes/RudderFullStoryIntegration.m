@@ -80,22 +80,7 @@
     for (NSString *propertyKey in properties) {
         NSObject *value = properties[propertyKey];
         NSString *key = [[propertyKey stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
-        // default to no suffix;
-        NSString *suffix = @"";
-        if ([value isKindOfClass:[NSNumber class]]) {
-            // defaut to int
-            suffix = @"_int";
-            NSNumber *n = (NSNumber *) value;
-            const char *typeCode = n.objCType;
-            if (n == (void*)kCFBooleanFalse || n == (void*)kCFBooleanTrue) {
-                suffix = @"_bool";
-            } else if (!strcmp(typeCode,"f") || !strcmp(typeCode,"d")) {
-                suffix = @"_real";
-            }
-        } else if([value isKindOfClass:[NSString class]]) {
-            suffix = @"_str";
-        } else if ([value isKindOfClass:[NSDate class]]) {
-            suffix = @"_date";
+        if ([value isKindOfClass:[NSDate class]]) {
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
             [dateFormatter setLocale:enUSPOSIXLocale];
@@ -103,10 +88,10 @@
             [dateFormatter setCalendar:[NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian]];
             NSDate *date = (NSDate *)value;
             NSString *iso8601String = [dateFormatter stringFromDate:date];
-            [suffixedProperty setObject:iso8601String forKey:[key stringByAppendingString:suffix]];
+            [suffixedProperty setObject:iso8601String forKey:[key stringByAppendingString:@"_date"]];
             continue;
         }
-        [suffixedProperty setObject:value forKey:[key stringByAppendingString:suffix]];
+        [suffixedProperty setObject:value forKey:key];
     }
     return suffixedProperty;
 }
