@@ -27,7 +27,7 @@
             [FS identify:message.userId userVars:traits];
             return;
         }
-        [FS setUserVars:traits];
+        [RSLogger logDebug:@"Identify call is not made because UserId is missing"];
     }
     else if ([type isEqualToString:@"track"])
     {
