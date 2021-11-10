@@ -16,28 +16,19 @@
 {
     // Override point for customization after application launch.
     
-    NSString *writeKey = @"1xIqoShqDObwpWKAZm78gvQHahY";
-    NSString *dataPlaneUrl = @"https://941a-2405-201-8000-609d-6467-f5-fcc5-20f.ngrok.io";
-    NSString *controlPlaneUrl = @"https://5416-2405-201-8000-609d-6467-f5-fcc5-20f.ngrok.io";
+    NSString *writeKey = @"1xwMDX5BwehYuZv0BuXOezWmgHt";
+    NSString *dataPlaneUrl = @"https://3a3c-2405-201-8000-6110-51f7-1003-4a1c-7e.ngrok.io";
+    NSString *controlPlaneUrl = @"https://3448-2405-201-8000-6110-51f7-1003-4a1c-7e.ngrok.io";
 
   
     RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
     [configBuilder withDataPlaneUrl:dataPlaneUrl];
-    [configBuilder withLoglevel:RSLogLevelNone];
+    [configBuilder withLoglevel:RSLogLevelVerbose];
     [configBuilder withControlPlaneUrl:controlPlaneUrl];
+    [configBuilder withTrackLifecycleEvens:NO];
     [configBuilder withFactory:[RudderFullStoryFactory instance]];
-    RSClient *rudderClient = [RSClient getInstance:writeKey config:[configBuilder build]];
+    [RSClient getInstance:writeKey config:[configBuilder build]];
     
-    NSMutableDictionary *traits = [[NSMutableDictionary alloc] init];
-        [traits setObject:@"Random_Value" forKey:@"Random_Key"];
-    
-    [[RSClient sharedInstance] identify:@"userId" traits:traits];
-    
-    [[RSClient sharedInstance] track:@"track call"];
-    
-    [[RSClient sharedInstance] screen:@"Screen call"];
-    
-    [[RSClient sharedInstance] group:@"Group call" traits:traits];
     
     return YES;
 }

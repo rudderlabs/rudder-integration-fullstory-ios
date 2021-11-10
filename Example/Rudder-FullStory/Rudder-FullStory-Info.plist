@@ -6,6 +6,8 @@
 	<dict>
 		<key>OrgId</key>
 		<string>YOUR_ORG_HERE</string>
+		<key>RecordOnStart</key>
+		<true/>
 	</dict>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
