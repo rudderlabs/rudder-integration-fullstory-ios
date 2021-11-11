@@ -19,7 +19,7 @@
     NSString *type = message.type;
     if ([type isEqualToString:@"identify"])
     {
-        NSMutableDictionary<NSString*, NSObject*>* traits = [message.context.traits mutableCopy];
+        NSMutableDictionary<NSString*, NSObject*>* traits = [[self getSuffixProperty:message.context.traits] mutableCopy];      
         if (!isEmpty(traits)) {
             [traits removeObjectForKey:@"userId"];
         }
