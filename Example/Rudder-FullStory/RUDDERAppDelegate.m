@@ -16,16 +16,19 @@
 {
     // Override point for customization after application launch.
     
-    NSString *writeKey = @"1vqBRSLN79i8T7Mcl6zzRsWqdO8";
-    NSString *dataPlaneUrl = @"https://285b83208a68.ngrok.io";
+    NSString *writeKey = @"1xwMDX5BwehYuZv0BuXOezWmgHt";
+    NSString *dataPlaneUrl = @"https://3a3c-2405-201-8000-6110-51f7-1003-4a1c-7e.ngrok.io";
+    NSString *controlPlaneUrl = @"https://3448-2405-201-8000-6110-51f7-1003-4a1c-7e.ngrok.io";
 
   
     RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
     [configBuilder withDataPlaneUrl:dataPlaneUrl];
     [configBuilder withLoglevel:RSLogLevelVerbose];
-    [configBuilder withControlPlaneUrl:@"https://chilly-seahorse-73.loca.lt"];
+    [configBuilder withControlPlaneUrl:controlPlaneUrl];
+    [configBuilder withTrackLifecycleEvens:NO];
     [configBuilder withFactory:[RudderFullStoryFactory instance]];
-    RSClient *rudderClient = [RSClient getInstance:writeKey config:[configBuilder build]];
+    [RSClient getInstance:writeKey config:[configBuilder build]];
+    
     
     return YES;
 }

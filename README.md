@@ -11,7 +11,8 @@ More information on RudderStack can be found [here](https://github.com/rudderlab
 2. Rudder-FullStory is available through [CocoaPods](https://cocoapods.org). To install it, add the following line to your Podfile and followed by `pod install`:
 
 ```ruby
-pod 'Rudder-FullStory'
+pod 'FullStory', :http => 'https://ios-releases.fullstory.com/fullstory-1.18.0-xcframework.tar.gz'
+pod 'Rudder-FullStory', '~> 1.0.0'
 ```
 
 ## Initialize ```RSClient```

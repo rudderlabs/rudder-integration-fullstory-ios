@@ -10,10 +10,11 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/rudderlabs/rudder-integration-fullstory-ios'
     s.license          = { :type => "Apache", :file => "LICENSE" }
     s.author           = { 'Rudderlabs' => 'arnab@rudderlabs.com' }
-    s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-fullstory-ios.git', :tag => 'v1.0.1' }
+    s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-fullstory-ios.git', :tag => 'v1.0.0' }
     s.platform         = :ios, "9.0"
 
     s.source_files = 'Rudder-FullStory/Classes/**/*'
 
-    s.dependency 'Rudder'
+    s.dependency 'Rudder', '~> 1.1.4'
+    s.dependency 'FullStory', '~> 1.18.0'
 end
