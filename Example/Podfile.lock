@@ -1,0 +1,23 @@
+PODS:
+  - Rudder (1.1.4)
+  - Rudder-FullStory (1.0.0):
+    - Rudder (~> 1.1.4)
+
+DEPENDENCIES:
+  - Rudder-FullStory (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Rudder
+
+EXTERNAL SOURCES:
+  Rudder-FullStory:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Rudder: c6eee927e11cadd4915bd0e814bd85a0c78e0e82
+  Rudder-FullStory: c8e0f95f71a18312daa492e2b85dffe0aac58cfc
+
+PODFILE CHECKSUM: c7ede364a353a14c471d496ca7f50a491aaaf1aa
+
+COCOAPODS: 1.11.3

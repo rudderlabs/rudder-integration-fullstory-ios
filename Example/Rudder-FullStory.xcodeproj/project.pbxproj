@@ -309,7 +309,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Rudder-FullStory_Example/Pods-Rudder-FullStory_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Rudder/Rudder.framework",
 				"${BUILT_PRODUCTS_DIR}/Rudder-FullStory/Rudder_FullStory.framework",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/FullStory/FullStory.framework/FullStory",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Rudder-FullStory/FullStory.framework/FullStory",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (

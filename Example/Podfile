@@ -4,9 +4,6 @@ platform :ios, '9.0'
 
 target 'Rudder-FullStory_Example' do
   pod 'Rudder-FullStory', :path => '../'
-  pod 'FullStory', :http => 'https://ios-releases.fullstory.com/fullstory-1.18.0-xcframework.tar.gz'
-
-
   
   target 'Rudder-FullStory_Tests' do
     inherit! :search_paths
