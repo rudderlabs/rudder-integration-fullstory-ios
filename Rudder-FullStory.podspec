@@ -2,6 +2,9 @@ require 'json'
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
+rudder_sdk_version = '~> 1.12'
+deployment_target = '11.0'
+
 Pod::Spec.new do |s|
     s.name             = 'Rudder-FullStory'
     s.version          = package['version']
@@ -18,7 +21,17 @@ Pod::Spec.new do |s|
     s.platform         = :ios, "9.0"
 
     s.source_files = 'Rudder-FullStory/Classes/**/*'
-    s.ios.vendored_frameworks = 'Frameworks/FullStory/FullStory.xcframework'
-    s.dependency 'Rudder', '~> 1.1.4'
-    # s.dependency 'FullStory'
+    s.static_framework = true
+    s.ios.deployment_target = deployment_target
+
+
+if defined?($RudderSDKVersion)
+  Pod::UI.puts "#{s.name}: Using user specified Rudder SDK version '#{$RudderSDKVersion}'"
+  rudder_sdk_version = $RudderSDKVersion
+else
+  Pod::UI.puts "#{s.name}: Using default Rudder SDK version '#{rudder_sdk_version}'"
+end
+
+    s.dependency 'Rudder', rudder_sdk_version
+    s.dependency 'FullStory'
 end

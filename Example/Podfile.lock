@@ -1,9 +1,12 @@
 PODS:
-  - Rudder (1.1.4)
+  - FullStory (1.37.1)
+  - Rudder (1.15.1)
   - Rudder-FullStory (1.0.0):
-    - Rudder (~> 1.1.4)
+    - FullStory
+    - Rudder (~> 1.12)
 
 DEPENDENCIES:
+  - "FullStory (from `{:http=>\"https://ios-releases.fullstory.com/fullstory-1.37.1-xcframework.tar.gz\"}`)"
   - Rudder-FullStory (from `../`)
 
 SPEC REPOS:
@@ -11,13 +14,20 @@ SPEC REPOS:
     - Rudder
 
 EXTERNAL SOURCES:
+  FullStory:
+    :http: https://ios-releases.fullstory.com/fullstory-1.37.1-xcframework.tar.gz
   Rudder-FullStory:
     :path: "../"
 
-SPEC CHECKSUMS:
-  Rudder: c6eee927e11cadd4915bd0e814bd85a0c78e0e82
-  Rudder-FullStory: c8e0f95f71a18312daa492e2b85dffe0aac58cfc
+CHECKOUT OPTIONS:
+  FullStory:
+    :http: https://ios-releases.fullstory.com/fullstory-1.37.1-xcframework.tar.gz
 
-PODFILE CHECKSUM: c7ede364a353a14c471d496ca7f50a491aaaf1aa
+SPEC CHECKSUMS:
+  FullStory: c6745942411596a6a2fdbb2de8d3c43698c3f25c
+  Rudder: 41040d4537a178e4e32477b68400f98ca0c354eb
+  Rudder-FullStory: 641f1a82be0fea5bfae2a2cd5e7129d7985605e2
+
+PODFILE CHECKSUM: 226e4c399c52d678b141fe4bb0ca23d685d51468
 
 COCOAPODS: 1.11.3
