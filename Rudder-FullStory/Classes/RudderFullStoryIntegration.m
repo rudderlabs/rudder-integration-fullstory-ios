@@ -19,11 +19,9 @@
     NSString *type = message.type;
     if ([type isEqualToString:@"identify"])
     {
-        NSMutableDictionary<NSString*, NSObject*>* traits = [[self getSuffixProperty:message.context.traits] mutableCopy];      
-        if (!isEmpty(traits)) {
-            [traits removeObjectForKey:@"userId"];
-        }
         if (!isEmpty(message.userId)) {
+            NSMutableDictionary<NSString*, NSObject*>* traits = [[self getSuffixProperty:message.context.traits] mutableCopy];
+            [traits removeObjectForKey:@"userId"];
             [FS identify:message.userId userVars:traits];
             return;
         }
@@ -41,10 +39,6 @@
     {
         if (!isEmpty(message.event)) {
             NSMutableDictionary *screenProperties = [self getSuffixProperty:message.properties];
-            if (isEmpty(screenProperties)) {
-                screenProperties = [[NSMutableDictionary alloc] init];
-            }
-            [screenProperties setObject:message.event forKey:@"name"];
             [FS event:@"Screen Viewed" properties:screenProperties];
             return;
         }
@@ -74,7 +68,7 @@
 
 - (NSMutableDictionary *)getSuffixProperty:(NSDictionary *)properties {
     if (isEmpty(properties)){
-        return nil;
+        return [[NSMutableDictionary alloc] init];
     }
     NSMutableDictionary *suffixedProperty = [[NSMutableDictionary alloc] init];
     for (NSString *propertyKey in properties) {

@@ -9,26 +9,28 @@
 #import "RUDDERAppDelegate.h"
 #import <Rudder/Rudder.h>
 #import <RudderFullStoryFactory.h>
+#import "Rudder_FullStory_Example-Swift.h"
 
 @implementation RUDDERAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
-    NSString *writeKey = @"1xwMDX5BwehYuZv0BuXOezWmgHt";
-    NSString *dataPlaneUrl = @"https://3a3c-2405-201-8000-6110-51f7-1003-4a1c-7e.ngrok.io";
-    NSString *controlPlaneUrl = @"https://3448-2405-201-8000-6110-51f7-1003-4a1c-7e.ngrok.io";
 
-  
-    RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
-    [configBuilder withDataPlaneUrl:dataPlaneUrl];
-    [configBuilder withLoglevel:RSLogLevelVerbose];
-    [configBuilder withControlPlaneUrl:controlPlaneUrl];
-    [configBuilder withTrackLifecycleEvens:NO];
-    [configBuilder withFactory:[RudderFullStoryFactory instance]];
-    [RSClient getInstance:writeKey config:[configBuilder build]];
-    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"RudderConfig" ofType:@"plist"];
+    if (path != nil) {
+        NSURL *url = [NSURL fileURLWithPath:path];
+        RudderConfig *rudderConfig = [RudderConfig createFrom:url];
+        if (rudderConfig != nil) {
+            RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
+            [configBuilder withDataPlaneUrl:rudderConfig.PROD_DATA_PLANE_URL];
+            [configBuilder withLoglevel:RSLogLevelVerbose];
+            [configBuilder withFactory:[RudderFullStoryFactory instance]];
+            [configBuilder withTrackLifecycleEvens:YES];
+            [configBuilder withSleepTimeOut:3];
+            [RSClient getInstance:rudderConfig.WRITE_KEY config:[configBuilder build]];
+        }
+    }
     
     return YES;
 }
