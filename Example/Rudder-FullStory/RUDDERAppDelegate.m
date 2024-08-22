@@ -24,7 +24,7 @@
         if (rudderConfig != nil) {
             RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
             [configBuilder withDataPlaneUrl:rudderConfig.PROD_DATA_PLANE_URL];
-            [configBuilder withLoglevel:RSLogLevelVerbose];
+            [configBuilder withLoglevel:RSLogLevelNone];
             [configBuilder withFactory:[RudderFullStoryFactory instance]];
             [configBuilder withTrackLifecycleEvens:YES];
             [configBuilder withSleepTimeOut:3];

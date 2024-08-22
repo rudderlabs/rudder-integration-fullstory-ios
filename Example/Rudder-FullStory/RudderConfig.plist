@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>WRITE_KEY</key>
-	<string>2kv0YUzw3cJeWyoS2WCTyOYWu0M</string>
+	<string></string>
 	<key>PROD_DATA_PLANE_URL</key>
 	<string>https://rudderstacuodq.dataplane.rudderstack.com</string>
 	<key>PROD_CONTROL_PLANE_URL</key>
