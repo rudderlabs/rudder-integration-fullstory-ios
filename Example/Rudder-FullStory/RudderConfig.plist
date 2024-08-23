@@ -5,7 +5,7 @@
 	<key>WRITE_KEY</key>
 	<string></string>
 	<key>PROD_DATA_PLANE_URL</key>
-	<string>https://rudderstacuodq.dataplane.rudderstack.com</string>
+	<string></string>
 	<key>PROD_CONTROL_PLANE_URL</key>
 	<string></string>
 	<key>LOCAL_DATA_PLANE_URL</key>
