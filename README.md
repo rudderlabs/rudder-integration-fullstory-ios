@@ -12,7 +12,7 @@ More information on RudderStack can be found [here](https://github.com/rudderlab
 
 ```ruby
 pod 'FullStory', :http => 'https://ios-releases.fullstory.com/fullstory-1.18.0-xcframework.tar.gz'
-pod 'Rudder-FullStory', '~> 1.1.0'
+pod 'Rudder-FullStory', '~> 1.2.0'
 ```
 
 ## Initialize ```RSClient```
