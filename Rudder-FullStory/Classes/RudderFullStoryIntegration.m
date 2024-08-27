@@ -16,6 +16,7 @@
 }
 
 - (void) processRudderEvent: (nonnull RSMessage *) message {
+
     NSString *type = message.type;
     if ([type isEqualToString:@"identify"])
     {
